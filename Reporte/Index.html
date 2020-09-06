@@ -8,7 +8,9 @@
     <style>
 
         body {
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: Comic Sans MS,Arial,Verdana;
+          padding-left: 10px;
+          background: #D5D8DC;
         }
 
         header {
@@ -17,50 +19,160 @@
 
         nav {
           float: left;
-          width: 20%;
-          height: 50px;
-          background: #eeeeee;
-          padding: 20px;
+          width: 48%;
+          height: 100px;
+          background: #DEE1E2;
+          padding: 10px;
+        }
+        .seltext {
+              font-weight: bold;
+              color: black;
+              font-style: italic;
         }
 
+        .auxtext {
+              font-size: 14px;
+              color: #807F7F;
+        }
+    
+
     </style>
-    <!-- fin de la definición de estilo --->
+    <!-- fin de la definición de estilo --->  
 
   </head>
   <body>
 
-    <header  style="border:1px solid black; border-width:2px;">
-      <h2>Casos por Ciudad</h2>
+    <header align="center">
+    </h2>Estado general 5 ciudades principales</h2>
     </header>
-
-    <nav style="border:1px solid rgb(105, 102, 102); border-width:2px;">
-      <p>Recuperados:</p>
-      <select id="Ciudad" name="Ciudad"  onchange="selectPlot()">
-        <option value="Bogota">Bogota</option>
-        <option value="Barranquilla">Barranquilla</option>
-        <option value="Cali">Cali</option>
-        <option value="Cartagena">Cartagena</option>
-        <option value="Medellin">Medellin</option>
-      </select>
-      <br>  
-      <hr>
-      <p> Datos tomados de Datos abiertos Colombia (2020) </p>
+    <br>
+    <img src="figs/gcasosconfirmados.png" alt="figs/gcasosconfirmados.png" title="Total Casos confirmados" width="32%" height="350px" />
+    <img src="figs/gcasosrecuperados.png" alt="figs/gcasosrecuperados.png" title="Total Casos recuperados" width="32%" height="350px"/>
+    <img src="figs/gcasosfallecidos.png" alt="figs/gcasosfallecidos.png" title="Total Casos Fallecidos" width="32%" height="350px"/>
+    
+    <header align="center">
+    </h2 class="seltext">Corto</h2>
+    </header>
+    
+    <nav class="comparaciones" style="border:1px solid #BEBDBD; border-width:2px;" align="center">
+      <p class="seltext">Ciudad</p>
+        <select id="filtro3" name="filtro3"  onchange="selectPlotComparate2()">
+          <option value="Bogota">Bogota</option>
+          <option value="Barranquilla">Barranquilla</option>
+          <option value="Cali">Cali</option>
+          <option value="Cartagena">Cartagena</option>
+          <option value="Medellin">Medellin</option>
+        </select>
+        <br>  
+        <hr>
+    <p class="auxtext">  </p>
     </nav>
+    <nav class="comparaciones" style="border:1px solid #BEBDBD; border-width:2px;" align="center">
+      <p class="seltext">Estado:</p>
+        <select id="filtro4" name="filtro4"  onchange="selectPlotComparate2()">
+          <option value="Nuevos">Nuevos</option>
+          <option value="Recuperados">Recuperados</option>
+          <option value="Fallecidos">Fallecidos</option>
+        </select>
+        <br>  
+        <hr>
+    <p class="auxtext">  </p>
+    </nav>
+    <div align="center">
+    <div class="myImage2" id="Medellin_Nuevos" style="display:none"> <img src="figs/Medellin_Nuevos.png" alt="Medellin_Nuevos"> </div>
+    <div class="myImage2" id="Medellin_Recuperados" style="display:none"> <img src="figs/Medellin_Recuperados.png" alt="Medellin_Recuperados"> </div>
+    <div class="myImage2" id="Medellin_Fallecidos" style="display:none"> <img src="figs/Medellin_Fallecidos.png" alt="Medellin_Fallecidos"> </div>
+    <div class="myImage2" id="Bogota_Nuevos" style="display:none"> <img src="figs/Bogota_Nuevos.png" alt="Bogota_Nuevo"> </div>
+    <div class="myImage2" id="Bogota_Recuperados" style="display:none"> <img src="figs/Bogota_Recuperados.png" alt="Bogota_Recuperados"> </div>
+    <div class="myImage2" id="Bogota_Fallecidos" style="display:none"> <img src="figs/Bogota_Fallecidos.png" alt="Bogota_Fallecidos"> </div>
+    <div class="myImage2" id="Barranquilla_Nuevos" style="display:none"> <img src="figs/Barranquilla_Nuevos.png" alt="Barranquilla_Nuevos"> </div>
+    <div class="myImage2" id="Barranquilla_Recuperados" style="display:none"> <img src="figs/Barranquilla_Recuperados.png" alt="Barranquilla_Recuperados"> </div>
+    <div class="myImage2" id="Barranquilla_Fallecidos" style="display:none"> <img src="figs/Barranquilla_Fallecidos.png" alt="Barranquilla_Fallecidos"> </div>
+    <div class="myImage2" id="Cali_Nuevos" style="display:none"> <img src="figs/Cali_Nuevos.png" alt="Cali_Nuevo"> </div>
+    <div class="myImage2" id="Cali_Recuperados" style="display:none"> <img src="figs/Cali_Recuperados.png" alt="Cali_Recuperados"> </div>
+    <div class="myImage2" id="Cali_Fallecidos" style="display:none"> <img src="figs/Cali_Fallecidos.png" alt="Cali_Fallecidos"> </div>
+    <div class="myImage2" id="Cartagena_Nuevos" style="display:none"> <img src="figs/Cartagena_Nuevos.png" alt="Cartageba_Nuevos"> </div>
+    <div class="myImage2" id="Cartagena_Recuperados" style="display:none"> <img src="figs/Cartagena_Recuperados.png" alt="Cartagena_Recuperados"> </div>
+    <div class="myImage2" id="Cartagena_Fallecidos" style="display:none"> <img src="figs/Cartagena_Fallecidos.png" alt="Cartagena_Fallecidos"> </div>
+    </div> 
+  <p>
+      <hr>        
+    </p>
+  <Br>
+    
+    <header align="center">
+    </h2 class="seltext">Mediano</h2>
+    </header>
+    
+    <nav class="comparaciones" style="border:1px solid #BEBDBD; border-width:2px;" align="center">
+      <p class="seltext">Ciudad</p>
+        <select id="filtro1" name="filtro1"  onchange="selectPlotComparate()">
+          <option value="Bogota">Bogota</option>
+          <option value="Barranquilla">Barranquilla</option>
+          <option value="Cali">Cali</option>
+          <option value="Cartagena">Cartagena</option>
+          <option value="Medellin">Medellin</option>
+        </select>
+        <br>  
+        <hr>
+    <p class="auxtext">  </p>
+    </nav>
+    <nav class="comparaciones" style="border:1px solid #BEBDBD; border-width:2px;" align="center">
+      <p class="seltext">Estado:</p>
+        <select id="filtro2" name="filtro2"  onchange="selectPlotComparate()">
+          <option value="Nuevo">Nuevo</option>
+          <option value="Recuperado">Recuperado</option>
+          <option value="Fallecido">Fallecido</option>
+        </select>
+        <br>  
+        <hr>
+    <p class="auxtext">  </p>
+    </nav>
+    <div align="center">
+    <div class="myImage1" id="Medellin_Nuevo" style="display:none"> <img src="figs/Medellin_Nuevo.png" alt="Medellin_Nuevo"> </div>
+    <div class="myImage1" id="Medellin_Recuperado" style="display:none"> <img src="figs/Medellin_Recuperado.png" alt="Medellin_Recuperado"> </div>
+    <div class="myImage1" id="Medellin_Fallecido" style="display:none"> <img src="figs/Medellin_Fallecido.png" alt="Medellin_Fallecido"> </div>
+    <div class="myImage1" id="Bogota_Nuevo" style="display:none"> <img src="figs/Bogota_Nuevo.png" alt="Bogota_Nuevo"> </div>
+    <div class="myImage1" id="Bogota_Recuperado" style="display:none"> <img src="figs/Bogota_Recuperado.png" alt="Bogota_Recuperado"> </div>
+    <div class="myImage1" id="Bogota_Fallecido" style="display:none"> <img src="figs/Bogota_Fallecido.png" alt="Bogota_Fallecido"> </div>
+    <div class="myImage1" id="Barranquilla_Nuevo" style="display:none"> <img src="figs/Barranquilla_Nuevo.png" alt="Barranquilla_Nuevo"> </div>
+    <div class="myImage1" id="Barranquilla_Recuperado" style="display:none"> <img src="figs/Barranquilla_Recuperado.png" alt="Barranquilla_Recuperado"> </div>
+    <div class="myImage1" id="Barranquilla_Fallecido" style="display:none"> <img src="figs/Barranquilla_Fallecido.png" alt="Barranquilla_Fallecido"> </div>
+    <div class="myImage1" id="Cali_Nuevo" style="display:none"> <img src="figs/Cali_Nuevo.png" alt="Cali_Nuevo"> </div>
+    <div class="myImage1" id="Cali_Recuperado" style="display:none"> <img src="figs/Cali_Recuperado.png" alt="Cali_Recuperado"> </div>
+    <div class="myImage1" id="Cali_Fallecido" style="display:none"> <img src="figs/Cali_Fallecido.png" alt="Cali_Fallecido"> </div>
+    <div class="myImage1" id="Cartagena_Nuevo" style="display:none"> <img src="figs/Cartagena_Nuevo.png" alt="Cartageba_Nuevo"> </div>
+    <div class="myImage1" id="Cartagena_Recuperado" style="display:none"> <img src="figs/Cartagena_Recuperado.png" alt="Cartagena_Recuperado"> </div>
+    <div class="myImage1" id="Cartagena_Fallecido" style="display:none"> <img src="figs/Cartagena_Fallecido.png" alt="Cartagena_Fallecido"> </div>
+    </div> 
+  <p>
+      <hr>        
+    </p>
+  <Br>
 
-    <div style="border:1px solid rgb(105, 102, 102); border-width:2px;">
-      <div class="myImage" id="Bogota"   style="display:block"> <img src="figs/Bogota.png"   alt="Bogota">   </div>
-      <div class="myImage" id="Barranquilla"   style="display:none">  <img src="figs/Barranquilla.png"   alt="Barranquilla">   </div>
-      <div class="myImage" id="Cali"     style="display:none">  <img src="figs/Cali.png"     alt="Cali">     </div>
-      <div class="myImage" id="Cartagena"   style="display:none">  <img src="figs/Cartagena.png"   alt="Cartagena">   </div>
-      <div class="myImage" id="Medellin"  style="display:none">  <img src="figs/Medellin.png"  alt="Medellin">  </div>
-    </div>
-  </nav>
-  <script>
-    function selectPlot() {
-      var Ciudad = document.getElementById("Ciudad").value;
-      var images = document.getElementsByClassName("myImage");
+   <script>
+    function selectPlotComparate() {
+      var filtro1 = document.getElementById("filtro1").value;
+      var filtro2 = document.getElementById("filtro2").value;
+      var carac = "_"
+      var images = document.getElementsByClassName("myImage1");
+      
       for (var i = 0; i < images.length; i++) {
-        if (images[i].id == Ciudad) {
+        if (images[i].id == filtro1.concat(carac, filtro2)) {
+          images[i].style.display = "block"
+        }else{
+          images[i].style.display = "none"
+        }
+      }
+    }
+   function selectPlotComparate2() {
+      var filtro3 = document.getElementById("filtro3").value;
+      var filtro4 = document.getElementById("filtro4").value;
+      var carac = "_"
+      var images = document.getElementsByClassName("myImage2");
+      
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].id == filtro3.concat(carac, filtro4)) {
           images[i].style.display = "block"
         }else{
           images[i].style.display = "none"
@@ -68,39 +180,8 @@
       }
     }
   </script>
-
-  <nav style="border:1px solid red; border-width:2px;">
-    <p>Fallecidos:</p>
-    <select id="Ciudad2" name="Ciudad"  onchange="selectPlot2()">
-      <option value="FBogota">Bogota</option>
-      <option value="FBarranquilla">Barranquilla</option>
-      <option value="FCali">Cali</option>
-      <option value="FCartagena">Cartagena</option>
-      <option value="FMedellin">Medellin</option>
-    </select>
-    <br>
-  </nav> 
-  <div style="border:1px solid blue; border-width:2px;">
-    <div class="myImage2" id="FBogota"   style="display:block"> <img src="figs/FBogota.png"   alt="FBogota">   </div>
-    <div class="myImage2" id="FBarranquilla"   style="display:none">  <img src="figs/FBarranquilla.png"   alt="FBarranquilla">   </div>
-    <div class="myImage2" id="FCali"     style="display:none">  <img src="figs/FCali.png"     alt="FCali">     </div>
-    <div class="myImage2" id="FCartagena"   style="display:none">  <img src="figs/FCartagena.png"   alt="FCartagena">   </div>
-    <div class="myImage2" id="FMedellin"  style="display:none">  <img src="figs/FMedellin.png"  alt="FMedellin">  </div>
-  </div>
-
-
-      <script>
-        function selectPlot2() {
-          var Ciudad2 = document.getElementById("Ciudad2").value;
-          var images = document.getElementsByClassName("myImage2");
-          for (var i = 0; i < images.length; i++) {
-            if (images[i].id == Ciudad2) {
-              images[i].style.display = "block"
-            }else{
-              images[i].style.display = "none"
-            }
-          }
-        }
-      </script>
+   <footer>
+      <p> Datos tomados de Datos abiertos Colombia (2020) </p>
+    </footer>
   </body>
 </html>
