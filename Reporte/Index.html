@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Covid19</title>
+
+    <!--- se adiciona el estilo usando CSS --->
+    <style>
+
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            font-size: 20px;
+        }
+
+        nav {
+          float: left;
+          width: 20%;
+          height: 50px;
+          background: #eeeeee;
+          padding: 20px;
+        }
+
+    </style>
+    <!-- fin de la definición de estilo --->
+
+  </head>
+  <body>
+
+    <header  style="border:1px solid black; border-width:2px;">
+      <h2>Casos por Ciudad</h2>
+    </header>
+
+    <nav style="border:1px solid rgb(105, 102, 102); border-width:2px;">
+      <p>Recuperados:</p>
+      <select id="Ciudad" name="Ciudad"  onchange="selectPlot()">
+        <option value="Bogota">Bogota</option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="Cali">Cali</option>
+        <option value="Cartagena">Cartagena</option>
+        <option value="Medellin">Medellin</option>
+      </select>
+      <br>  
+      <hr>
+      <p> Datos tomados de Datos abiertos Colombia (2020) </p>
+    </nav>
+
+    <div style="border:1px solid rgb(105, 102, 102); border-width:2px;">
+      <div class="myImage" id="Bogota"   style="display:block"> <img src="figs/Bogota.png"   alt="Bogota">   </div>
+      <div class="myImage" id="Barranquilla"   style="display:none">  <img src="figs/Barranquilla.png"   alt="Barranquilla">   </div>
+      <div class="myImage" id="Cali"     style="display:none">  <img src="figs/Cali.png"     alt="Cali">     </div>
+      <div class="myImage" id="Cartagena"   style="display:none">  <img src="figs/Cartagena.png"   alt="Cartagena">   </div>
+      <div class="myImage" id="Medellin"  style="display:none">  <img src="figs/Medellin.png"  alt="Medellin">  </div>
+    </div>
+  </nav>
+  <script>
+    function selectPlot() {
+      var Ciudad = document.getElementById("Ciudad").value;
+      var images = document.getElementsByClassName("myImage");
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].id == Ciudad) {
+          images[i].style.display = "block"
+        }else{
+          images[i].style.display = "none"
+        }
+      }
+    }
+  </script>
+
+  <nav style="border:1px solid red; border-width:2px;">
+    <p>Fallecidos:</p>
+    <select id="Ciudad2" name="Ciudad"  onchange="selectPlot2()">
+      <option value="FBogota">Bogota</option>
+      <option value="FBarranquilla">Barranquilla</option>
+      <option value="FCali">Cali</option>
+      <option value="FCartagena">Cartagena</option>
+      <option value="FMedellin">Medellin</option>
+    </select>
+    <br>
+  </nav> 
+  <div style="border:1px solid blue; border-width:2px;">
+    <div class="myImage2" id="FBogota"   style="display:block"> <img src="figs/FBogota.png"   alt="FBogota">   </div>
+    <div class="myImage2" id="FBarranquilla"   style="display:none">  <img src="figs/FBarranquilla.png"   alt="FBarranquilla">   </div>
+    <div class="myImage2" id="FCali"     style="display:none">  <img src="figs/FCali.png"     alt="FCali">     </div>
+    <div class="myImage2" id="FCartagena"   style="display:none">  <img src="figs/FCartagena.png"   alt="FCartagena">   </div>
+    <div class="myImage2" id="FMedellin"  style="display:none">  <img src="figs/FMedellin.png"  alt="FMedellin">  </div>
+  </div>
+
+
+      <script>
+        function selectPlot2() {
+          var Ciudad2 = document.getElementById("Ciudad2").value;
+          var images = document.getElementsByClassName("myImage2");
+          for (var i = 0; i < images.length; i++) {
+            if (images[i].id == Ciudad2) {
+              images[i].style.display = "block"
+            }else{
+              images[i].style.display = "none"
+            }
+          }
+        }
+      </script>
+  </body>
+</html>
